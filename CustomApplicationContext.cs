@@ -35,8 +35,11 @@ namespace RemindMe
                 Visible = true
             };
             notifyIcon.ContextMenuStrip.Items.Add(ToolStripMenuItemWithHandler("Turn On Alert", onBtn_click));
-            notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             notifyIcon.ContextMenuStrip.Items.Add(ToolStripMenuItemWithHandler("Turn Off Alert", offBtn_click));
+            notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+            notifyIcon.ContextMenuStrip.Items.Add(ToolStripMenuItemWithHandler("Full Screen Reminder?", fullBtn_click));
+            notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
+            notifyIcon.ContextMenuStrip.Items.Add("Alert is off");
             notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
             notifyIcon.ContextMenuStrip.Items.Add(ToolStripMenuItemWithHandler("Quit", quit_Click));
             notifyIcon.ContextMenuStrip.Items.Add(new ToolStripSeparator());
@@ -63,7 +66,7 @@ namespace RemindMe
             if (minute != 0)
                 Minute = minute * 60000;
 
-            timer.Interval = 5000;
+            timer.Interval = 10000;
             timer.Tick += timer_Tick;
 
             if(timerOn)
@@ -71,21 +74,52 @@ namespace RemindMe
         }
 
         #region Events
+
+        bool fullscreen = false;
+
+        private void fullBtn_click(object sender, EventArgs e)
+        {
+            if (fullscreen)
+            {
+                fullscreen = false;
+            }
+            else
+            {
+                fullscreen = true;
+            }
+            foreach (ToolStripItem item in notifyIcon.ContextMenuStrip.Items)
+            {
+                if(item.Text.Contains("Full Screen"))
+                    item.Text = "Tray Reminder?";
+            }
+        }
+
         private void offBtn_click(object sender, EventArgs e)
         {
             if (TimerOn)
                 timer.Enabled = false;
+
+            foreach (ToolStripItem item in notifyIcon.ContextMenuStrip.Items)
+            {
+                if (item.Text.Contains("Alert is"))
+                    item.Text = "Alert is off";
+            }
         }
 
         private void onBtn_click(object sender, EventArgs e)
         {
             if (!TimerOn)
                 timer.Enabled = true;
+
+            foreach (ToolStripItem item in notifyIcon.ContextMenuStrip.Items)
+            {
+                if (item.Text.Contains("Alert is"))
+                    item.Text = "Alert is on";
+            }
         }
 
         private void notifyIcon_MouseUp(object sender, MouseEventArgs e)
         {
-            notifyIcon.ContextMenuStrip.Items.Add("Alert is " + onOff);
             if (e.Button == MouseButtons.Right)
             {
                 MethodInfo mi = typeof(NotifyIcon).GetMethod("ShowContextMenu", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -148,9 +182,19 @@ namespace RemindMe
 
         void timer_Tick(object sender, EventArgs e)
         {
-            notifyIcon.BalloonTipTitle = "Reminder!";
-            notifyIcon.BalloonTipText = reminder.ReminderText;
-            notifyIcon.ShowBalloonTip(1000);
+            FullScreenCover fullscreenDialog = new FullScreenCover(reminder);
+
+            if (fullscreen)
+            {
+                fullscreenDialog.Opacity = 0.8;
+                fullscreenDialog.ShowDialog();
+            }
+            else
+            {
+                notifyIcon.BalloonTipTitle = "Reminder!";
+                notifyIcon.BalloonTipText = reminder.ReminderText;
+                notifyIcon.ShowBalloonTip(1000);
+            }
         }
         #endregion
     }

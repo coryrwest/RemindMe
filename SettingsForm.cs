@@ -19,6 +19,8 @@ namespace RemindMe
         public SettingsForm(Reminder Reminder)
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new Point(MousePosition.X - this.ClientSize.Width - 60, MousePosition.Y - this.ClientSize.Height - 40);
             reminder = Reminder;
             if (reminder != null)
             {
