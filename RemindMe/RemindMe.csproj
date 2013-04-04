@@ -31,6 +31,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>route.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +54,11 @@
     <Compile Include="FullScreenCover.Designer.cs">
       <DependentUpon>FullScreenCover.cs</DependentUpon>
     </Compile>
+    <Compile Include="TrayIcon.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TrayIcon.resx</DependentUpon>
+    </Compile>
     <Compile Include="ReminderHelper.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
@@ -63,6 +71,11 @@
     <Compile Include="ReminderTimer.cs" />
     <EmbeddedResource Include="FullScreenCover.resx">
       <DependentUpon>FullScreenCover.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrayIcon.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>TrayIcon.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -88,6 +101,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\route.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="route.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

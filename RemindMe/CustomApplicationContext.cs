@@ -12,6 +12,9 @@ namespace RemindMe
         public CustomApplicationContext()
         {
             InitializeContext();
+            _notifyIcon.BalloonTipTitle = "Down Here!";
+            _notifyIcon.BalloonTipText = "Right Click to get started";
+            _notifyIcon.ShowBalloonTip(1000);
         }
 
         private NotifyIcon _notifyIcon;
@@ -28,7 +31,7 @@ namespace RemindMe
             _notifyIcon = new NotifyIcon(components)
             {
                 ContextMenuStrip = new ContextMenuStrip(),
-                Icon = new Icon("route.ico"),
+                Icon = TrayIcon.route,
                 Text = "RemindMe",
                 Visible = true
             };
