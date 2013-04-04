@@ -30,18 +30,19 @@
         {
             this.OkBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // OkBtn
             // 
-            this.OkBtn.Location = new System.Drawing.Point(117, 237);
+            this.OkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.OkBtn.Location = new System.Drawing.Point(87, 227);
             this.OkBtn.Name = "OkBtn";
-            this.OkBtn.Size = new System.Drawing.Size(75, 23);
+            this.OkBtn.Size = new System.Drawing.Size(131, 33);
             this.OkBtn.TabIndex = 0;
-            this.OkBtn.Text = "OK";
+            this.OkBtn.Text = "Got It!";
             this.OkBtn.UseVisualStyleBackColor = true;
             this.OkBtn.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -56,26 +57,30 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Reminder!";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label2.Location = new System.Drawing.Point(83, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Reminder Text";
-            // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.OkBtn);
-            this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(301, 199);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(309, 263);
             this.panel1.TabIndex = 3;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.ForeColor = System.Drawing.SystemColors.Info;
+            this.textBox1.Location = new System.Drawing.Point(4, 57);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(302, 143);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = "Test";
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FullScreenCover
             // 
@@ -99,7 +104,7 @@
 
         private System.Windows.Forms.Button OkBtn;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

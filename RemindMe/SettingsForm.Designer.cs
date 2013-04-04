@@ -36,7 +36,6 @@
             this.reminderBox = new System.Windows.Forms.TextBox();
             this.turnOnBtn = new System.Windows.Forms.Button();
             this.turnOffBtn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -116,21 +115,11 @@
             this.turnOffBtn.UseVisualStyleBackColor = true;
             this.turnOffBtn.Click += new System.EventHandler(this.turnOffBtn_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(105, 139);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(116, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Your next reminder is in";
-            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 168);
-            this.Controls.Add(this.label4);
+            this.ClientSize = new System.Drawing.Size(430, 148);
             this.Controls.Add(this.turnOffBtn);
             this.Controls.Add(this.turnOnBtn);
             this.Controls.Add(this.reminderBox);
@@ -160,7 +149,6 @@
         private System.Windows.Forms.TextBox reminderBox;
         private System.Windows.Forms.Button turnOnBtn;
         private System.Windows.Forms.Button turnOffBtn;
-        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -60,6 +60,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReminderTimer.cs" />
     <EmbeddedResource Include="FullScreenCover.resx">
       <DependentUpon>FullScreenCover.cs</DependentUpon>
     </EmbeddedResource>

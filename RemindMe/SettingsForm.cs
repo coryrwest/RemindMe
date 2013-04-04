@@ -11,27 +11,24 @@ using System.Windows.Forms;
 
 namespace RemindMe
 {
-    public partial class SettingsForm : Form
+    partial class SettingsForm : Form
     {
         Reminder reminder;
-        bool TimerOn = false;
+        ReminderTimer timer;
 
-        public SettingsForm(Reminder Reminder)
+        public SettingsForm(Reminder Reminder, ReminderTimer Timer)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.Manual;
-            this.Location = new Point(MousePosition.X - this.ClientSize.Width - 60, MousePosition.Y - this.ClientSize.Height - 40);
+            this.Location = new Point(Screen.PrimaryScreen.WorkingArea.Right - this.Width, Screen.PrimaryScreen.WorkingArea.Bottom - this.Height);
             reminder = Reminder;
+            timer = Timer;
             if (reminder != null)
             {
-                if (reminder.Minute > 60000)
-                    label4.Text = "Your next reminder is in " + reminder.Hour + " hours and " + reminder.Minute + " minutes.";
-                else
-                    label4.Text = "Your next reminder is in " + reminder.Hour + " hours and " + reminder.Minute + " minute.";
+                hrBox.Text = reminder.Hour.ToString();
+                minBox.Text = reminder.Minute.ToString();
+                reminderBox.Text = reminder.ReminderText;
             }
-            hrBox.Text = reminder.Hour.ToString();
-            minBox.Text = reminder.Minute.ToString();
-            reminderBox.Text = reminder.ReminderText;
         }
 
         private void SettingsForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -51,6 +48,12 @@ namespace RemindMe
                 MessageBox.Show("You did not specify a reminder");
                 e.Cancel = true;
             }
+
+            if (Convert.ToInt32(hrBox.Text) == 0 && Convert.ToInt32(minBox.Text) == 0)
+            {
+                MessageBox.Show("You did not specify a reminder time");
+                e.Cancel = true;
+            }
         }
 
         private void turnOnBtn_Click(object sender, EventArgs e)
@@ -58,10 +61,14 @@ namespace RemindMe
             reminder.Hour = Convert.ToInt32(hrBox.Text);
             reminder.Minute = Convert.ToInt32(minBox.Text);
             reminder.ReminderText = reminderBox.Text;
-            TimerOn = true;
+            timer.UpdateTimer(true);
             if (reminderBox.Text.Length < 1)
             {
                 MessageBox.Show("You did not specify a reminder.");
+            }
+            else if (Convert.ToInt32(hrBox.Text) == 0 && Convert.ToInt32(minBox.Text) == 0)
+            {
+                MessageBox.Show("You did not specify a reminder time");
             }
             else
             {
@@ -71,18 +78,8 @@ namespace RemindMe
 
         private void turnOffBtn_Click(object sender, EventArgs e)
         {
-            if(reminder.Minute > 60000)
-                label4.Text = "Your next reminder is in " + reminder.Hour + " hours and " + reminder.Minute + " minutes.";
-            else
-                label4.Text = "Your next reminder is in " + reminder.Hour + " hours and " + reminder.Minute + " minute.";
-
-            TimerOn = false;
+            timer.UpdateTimer(false);
             this.Close();
-        }
-
-        public bool GetTimerState()
-        {
-            return TimerOn;
         }
     }
 }

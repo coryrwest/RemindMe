@@ -15,7 +15,7 @@ namespace RemindMe
         public FullScreenCover(Reminder reminder)
         {
             InitializeComponent();
-            label2.Text = reminder.ReminderText;
+            textBox1.Text = reminder.ReminderText;
             panel1.Location = new Point(this.ClientSize.Width / 2 - this.panel1.Width / 2, this.ClientSize.Height / 2 - this.panel1.Height / 2);
             panel1.Anchor = AnchorStyles.None;
         }
