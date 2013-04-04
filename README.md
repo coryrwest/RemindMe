@@ -13,9 +13,9 @@ Double click the icon to open the reminder window.
 Features
 ========
 - Set reminder for anytime between 1 minute and 24 hours.
-- Reminder will display in a balloon tip.
+- Reminder will display in a balloon tip or a fullscreen cover.
+- Fullscreen cover dims the desktop and displays your reminder forcing you to aknowledge it.
 - Can turn reminder on and off from right click menu.
-- Full screen or tray based reminders.
 
 
 Future Features
