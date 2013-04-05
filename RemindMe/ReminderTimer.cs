@@ -24,7 +24,7 @@ namespace RemindMe
 
             int interval = Hour + Minute;
 
-            timer.Interval = 15000;
+            timer.Interval = interval;
 
             if (timerOn)
                 timer.Enabled = true;
@@ -47,7 +47,7 @@ namespace RemindMe
 
             int interval = Hour + Minute;
 
-            timer.Interval = 10000;
+            timer.Interval = interval;
 
             if (timerOn)
                 timer.Enabled = true;
@@ -68,7 +68,7 @@ namespace RemindMe
 
             int interval = Hour + Minute;
 
-            timer.Interval = 10000;
+            timer.Interval = interval;
         }
 
         public void UpdateTimer(bool timerOn)
