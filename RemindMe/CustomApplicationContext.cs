@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Reflection;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -11,6 +13,23 @@ namespace RemindMe
     {
         public CustomApplicationContext()
         {
+            reminder = null;
+
+            if (!Directory.Exists(path + "\\RemindMe"))
+            {
+                reminder = new Reminder {Hour = 0, Minute = 1, ReminderText = "This is a default reminder"};
+                Directory.CreateDirectory(path + "\\RemindMe");
+                stream = File.Open(path + "\\RemindMe\\reminder.rm", FileMode.Create);
+                bformat.Serialize(stream, reminder);
+                stream.Close();
+            }
+            else
+            {
+                stream = File.Open(path + "\\RemindMe\\reminder.rm", FileMode.Open);
+                reminder = (Reminder)bformat.Deserialize(stream);
+                stream.Close();
+            }
+
             InitializeContext();
             _notifyIcon.BalloonTipTitle = "Down Here!";
             _notifyIcon.BalloonTipText = "Right Click to get started";
@@ -23,10 +42,12 @@ namespace RemindMe
         ReminderTimer timer = new ReminderTimer();
         bool fullscreen;
         public SettingsForm settingsForm;
+        string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+        Stream stream;
+        BinaryFormatter bformat = new BinaryFormatter();
 
         private void InitializeContext()
         {
-            reminder = new Reminder();
             components = new Container();
             _notifyIcon = new NotifyIcon(components)
             {
@@ -146,6 +167,10 @@ namespace RemindMe
 
         void quit_Click(object sender, EventArgs e)
         {
+            stream = File.Open(path + "\\RemindMe\\reminder.rm", FileMode.Create);
+            bformat.Serialize(stream, reminder);
+            stream.Close();
+
             ExitThread();
         }
 
