@@ -1,0 +1,14 @@
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\bin\Release\RemindMe.exe.config
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\bin\Release\RemindMe.exe.manifest
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\bin\Release\RemindMe.application
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\bin\Release\RemindMe.exe
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\bin\Release\RemindMe.pdb
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.FullScreenCover.resources
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.TrayIcon.resources
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.Properties.Resources.resources
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.SettingsForm.resources
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.csproj.GenerateResource.Cache
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.exe.manifest
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.application
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.exe
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Release\RemindMe.pdb

@@ -9,3 +9,7 @@ E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Debug\RemindMe.ex
 E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Debug\RemindMe.pdb
 E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Debug\RemindMe.csprojResolveAssemblyReference.cache
 E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Debug\RemindMe.TrayIcon.resources
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\bin\Debug\RemindMe.exe.manifest
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\bin\Debug\RemindMe.application
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Debug\RemindMe.exe.manifest
+E:\Documents\Visual Studio 2012\Projects\RemindMe\RemindMe\obj\Debug\RemindMe.application

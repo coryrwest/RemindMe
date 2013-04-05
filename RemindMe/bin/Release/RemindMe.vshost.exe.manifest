@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RemindMe.exe" size="169984">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RemindMe.exe" size="169472">
       <assemblyIdentity name="RemindMe" version="1.1.2.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>zbX8HpQV10wG4E207+gF+4DNe3JkLGsxR5iz7TkIirA=</dsig:DigestValue>
+        <dsig:DigestValue>BMyur+x7c9h/WNn5ku91VqZmE1dOBmiOYE+HkfPPNhA=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
