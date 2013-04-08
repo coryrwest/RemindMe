@@ -32,13 +32,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.postpone = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // OkBtn
             // 
             this.OkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.OkBtn.Location = new System.Drawing.Point(87, 227);
+            this.OkBtn.Location = new System.Drawing.Point(178, 231);
             this.OkBtn.Name = "OkBtn";
             this.OkBtn.Size = new System.Drawing.Size(131, 33);
             this.OkBtn.TabIndex = 0;
@@ -59,6 +60,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.postpone);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.OkBtn);
@@ -81,6 +83,17 @@
             this.textBox1.TabIndex = 2;
             this.textBox1.Text = "Test";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // postpone
+            // 
+            this.postpone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.postpone.Location = new System.Drawing.Point(0, 231);
+            this.postpone.Name = "postpone";
+            this.postpone.Size = new System.Drawing.Size(142, 32);
+            this.postpone.TabIndex = 3;
+            this.postpone.Text = "Postpone 5 minutes";
+            this.postpone.UseVisualStyleBackColor = true;
+            this.postpone.Click += new System.EventHandler(this.postpone_Click);
             // 
             // FullScreenCover
             // 
@@ -106,5 +119,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button postpone;
     }
 }

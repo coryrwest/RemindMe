@@ -61,7 +61,6 @@ namespace RemindMe
             reminder.Hour = Convert.ToInt32(hrBox.Text);
             reminder.Minute = Convert.ToInt32(minBox.Text);
             reminder.ReminderText = reminderBox.Text;
-            timer.UpdateTimer(true);
             if (reminderBox.Text.Length < 1)
             {
                 MessageBox.Show("You did not specify a reminder.");
@@ -72,13 +71,16 @@ namespace RemindMe
             }
             else
             {
+                if (timer.GetState())
+                    timer.UpdateTimer(true);
                 this.Close();
             }
         }
 
         private void turnOffBtn_Click(object sender, EventArgs e)
         {
-            timer.UpdateTimer(false);
+            if (timer.GetState())
+                timer.UpdateTimer(false);
             this.Close();
         }
     }

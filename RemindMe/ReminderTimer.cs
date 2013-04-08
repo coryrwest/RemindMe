@@ -10,6 +10,8 @@ namespace RemindMe
     class ReminderTimer
     {
         Timer timer = new Timer();
+        Timer postponeTimer = new Timer();
+        private CustomApplicationContext Context;
 
         public void StartTimer(int hour, int minute, bool timerOn, CustomApplicationContext context)
         {
@@ -31,6 +33,7 @@ namespace RemindMe
             else
                 timer.Enabled = false;
 
+            context = Context;
             timer.Tick += context.TimerTick;
         }
 
@@ -82,6 +85,22 @@ namespace RemindMe
         public bool GetState()
         {
             return timer.Enabled;
+        }
+
+        public int Postpone()
+        {
+            timer.Stop();
+            postponeTimer.Interval = 300000;
+            postponeTimer.Start();
+            postponeTimer.Tick += postponeTimer_Tick;
+            postponeTimer.Tick += Context.TimerTick;
+        }
+
+        void postponeTimer_Tick(object sender, EventArgs e)
+        {
+            postponeTimer.Stop();
+            postponeTimer = null;
+            timer.Start();
         }
     }
 }

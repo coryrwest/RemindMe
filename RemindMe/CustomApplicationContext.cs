@@ -45,6 +45,7 @@ namespace RemindMe
         string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
         Stream stream;
         BinaryFormatter bformat = new BinaryFormatter();
+        public FullScreenCover fullscreenDialog;
 
         private void InitializeContext()
         {
@@ -74,12 +75,11 @@ namespace RemindMe
         }
 
         #region Events
-        // REFACTOR THIS
         public void TimerTick(object sender, EventArgs e)
         {
             if (fullscreen)
             {
-                FullScreenCover fullscreenDialog = new FullScreenCover(reminder)
+                fullscreenDialog = new FullScreenCover(reminder)
                                                        {
                                                            Opacity = 0.8,
                                                            TopMost = true

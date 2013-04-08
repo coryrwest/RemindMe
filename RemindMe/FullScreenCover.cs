@@ -12,6 +12,8 @@ namespace RemindMe
 {
     public partial class FullScreenCover : Form
     {
+        ReminderTimer Timer;
+
         public FullScreenCover(Reminder reminder)
         {
             InitializeComponent();
@@ -21,6 +23,11 @@ namespace RemindMe
         }
 
         private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void postpone_Click(object sender, EventArgs e)
         {
             this.Close();
         }
